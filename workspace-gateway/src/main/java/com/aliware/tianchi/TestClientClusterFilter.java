@@ -17,6 +17,8 @@ import org.apache.dubbo.rpc.cluster.filter.ClusterFilter;
  */
 @Activate(group = CommonConstants.CONSUMER)
 public class TestClientClusterFilter implements ClusterFilter, BaseFilter.Listener {
+
+    // step.1
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         try {

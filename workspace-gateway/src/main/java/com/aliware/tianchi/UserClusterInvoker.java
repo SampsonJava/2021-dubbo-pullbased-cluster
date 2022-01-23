@@ -25,6 +25,7 @@ public class UserClusterInvoker<T> extends AbstractClusterInvoker<T> {
         super(directory);
     }
 
+    // step.2
     @Override
     protected Result doInvoke(Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance) throws RpcException {
         return select(loadbalance, invocation, invokers, null).invoke(invocation);

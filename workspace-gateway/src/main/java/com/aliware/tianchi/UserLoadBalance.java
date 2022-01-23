@@ -30,6 +30,7 @@ public class UserLoadBalance implements LoadBalance {
     public static final long preheatDeadline = System.currentTimeMillis() + 50000;  // todo 预热时间和服务端保持一致
 
 
+    // step.3
     @Override
     public <T> Invoker<T> select(List<Invoker<T>> invokers, URL url, Invocation invocation) throws RpcException {
         if (invokers == null || invokers.isEmpty())
