@@ -80,10 +80,12 @@ public class MyCount {
     }
 
     public long getSucceededAverageElapsed() {
+        // 成功次数
         long succeeded = getSucceeded();
         if (succeeded == 0) {
             return 0;
         }
+        // 总成功时间
         return totalSuccElapsed.get() / succeeded;
     }
 

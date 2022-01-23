@@ -82,7 +82,9 @@ public class TestClientFilter implements Filter, BaseFilter.Listener {
         }
         long elapsed = getElapsed(invocation);
 
+        // 判断是否预热完成
         if (status.isInit.get()) {
+            // 活跃数
             int active = Integer.parseInt(appResponse.getAttachment(ACTIVES));
             MyRpcStatus.record(url, active);
             MyCount.endCountAfterPreheat(url, elapsed, true);

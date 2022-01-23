@@ -40,14 +40,17 @@ public class MyRpcStatus {
 
     public static Integer getTimeout(URL url) {
         MyRpcStatus status = getStatus(url);
+        // 最后一次请求时间
         int lastElapsed = status.LastElapsed.get();
         if (lastElapsed == 0) {
             return initTimeout;
         }
         int max = (int) MyCount.getCount(url).getSucceededAverageElapsed() * 3;
+        // 如果最后一次请求时间大于平均成功时间的3倍, 那么返回平均成功时间的3倍作为超时时间
         if (lastElapsed > max) {
             return max;
         }
+        // 最后一次成功时间+3
         return lastElapsed + 3; // magic num
     }
 
